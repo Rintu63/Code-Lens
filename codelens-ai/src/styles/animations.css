@@ -1,0 +1,59 @@
+/* ============================================================
+   animations.css — Keyframe animations & transitions
+   ============================================================ */
+
+/* ── Spinner (used by loading state and btn-review.loading) ── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Pulse dot (agent status indicator) ── */
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1);   }
+  50%       { opacity: .5; transform: scale(1.35); }
+}
+
+.pulse-dot {
+  width         : 7px;
+  height        : 7px;
+  border-radius : 50%;
+  background    : var(--ok);
+  animation     : pulse 1.6s ease-in-out infinite;
+  flex-shrink   : 0;
+}
+
+/* ── Fade-in for panels ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+.panel.active { animation: fadeIn 0.2s ease both; }
+
+/* ── Slide-down for issue cards ── */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+.issue-card {
+  animation: slideDown 0.18s ease both;
+}
+
+/* ── Stagger helper: applied via JS by adding nth-child delays ── */
+.issue-card:nth-child(1) { animation-delay: 0ms;  }
+.issue-card:nth-child(2) { animation-delay: 40ms; }
+.issue-card:nth-child(3) { animation-delay: 80ms; }
+.issue-card:nth-child(4) { animation-delay: 120ms;}
+.issue-card:nth-child(5) { animation-delay: 160ms;}
+.issue-card:nth-child(6) { animation-delay: 200ms;}
+.issue-card:nth-child(7) { animation-delay: 240ms;}
+
+/* ── Score ring fill transition (handled via JS + CSS) ── */
+.score-fill { transition: stroke-dasharray 0.9s cubic-bezier(.4,0,.2,1); }
+
+/* ── Bar chart fill animation ── */
+.bar-fill { transition: width 0.85s cubic-bezier(.4,0,.2,1); }
+
+/* ── Spinning icon utility (for btn-review loading state) ── */
+.icon-spin { animation: spin 0.7s linear infinite; }

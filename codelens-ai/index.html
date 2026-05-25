@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>CodeLens AI — AI-powered pull request review agent</title>
+  <meta name="description" content="CodeLens AI — AI-powered pull request review agent"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+  <link rel="stylesheet" href="src/styles/variables.css"/>
+  <link rel="stylesheet" href="src/styles/base.css"/>
+  <link rel="stylesheet" href="src/styles/layout.css"/>
+  <link rel="stylesheet" href="src/styles/components.css"/>
+  <link rel="stylesheet" href="src/styles/panels.css"/>
+  <link rel="stylesheet" href="src/styles/animations.css"/>
+  <link rel="stylesheet" href="src/styles/part2.css"/>
+  <link rel="stylesheet" href="src/styles/part3.css"/>
+  <link rel="stylesheet" href="src/styles/part4.css"/>
+  <link rel="stylesheet" href="src/styles/part5.css"/>
+  <link rel="shortcut icon" href="public/assets/logo.ico" type="image/x-icon">
+  <link rel="icon" href="public/assets/logo.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="public/assets/logo.ico">
+</head>
+<body>
+<div id="app">
+  <div id="header-root"></div>
+  <div id="tabs-root"></div>
+  <!-- PART 1 -->
+  <div class="panel active section" id="panel-review"><div id="pr-input-root"></div><div id="loading-root" class="hidden"></div><div id="results-root"></div></div>
+  <div class="panel section" id="panel-diff"><div id="diff-root"></div></div>
+  <div class="panel section" id="panel-stats"><div id="stats-root"></div></div>
+  <div class="panel section" id="panel-agents"><div id="agents-root"></div></div>
+  <div class="panel section" id="panel-timeline"><div id="timeline-root"></div></div>
+  <!-- PART 2 -->
+  <div class="panel section" id="panel-chat"><div id="chat-root"></div></div>
+  <div class="panel section" id="panel-autofix"><div id="autofix-root"></div></div>
+  <div class="panel section" id="panel-settings"><div id="settings-root"></div></div>
+  <div class="panel section" id="panel-webhook"><div id="webhook-root"></div></div>
+  <!-- PART 3 -->
+  <div class="panel section" id="panel-compare"><div id="compare-root"></div></div>
+  <div class="panel section" id="panel-leaderboard"><div id="leaderboard-root"></div></div>
+  <div class="panel section" id="panel-cicd"><div id="cicd-root"></div></div>
+  <div class="panel section" id="panel-rules"><div id="rules-root"></div></div>
+  <!-- PART 4 -->
+  <div class="panel section" id="panel-heatmap"><div id="heatmap-root"></div></div>
+  <div class="panel section" id="panel-deps"><div id="deps-root"></div></div>
+  <div class="panel section" id="panel-activity"><div id="activity-root"></div></div>
+  <div class="panel section" id="panel-templates"><div id="templates-root"></div></div>
+  <div class="panel section" id="panel-testgen"><div id="testgen-root"></div></div>
+  <!-- PART 5 -->
+  <div class="panel section" id="panel-rubric"><div id="rubric-root"></div></div>
+  <div class="panel section" id="panel-ownership"><div id="ownership-root"></div></div>
+  <div class="panel section" id="panel-velocity"><div id="velocity-root"></div></div>
+  <div class="panel section" id="panel-checklist"><div id="checklist-root"></div></div>
+</div>
+<!-- DATA -->
+<script src="src/data/issues.js"></script>
+<script src="src/data/agents.js"></script>
+<script src="src/data/timeline.js"></script>
+<script src="src/data/diffLines.js"></script>
+<script src="src/data/patterns.js"></script>
+<script src="src/data/chatSuggestions.js"></script>
+<script src="src/data/autoFixes.js"></script>
+<script src="src/data/settings.js"></script>
+<script src="src/data/webhookEvents.js"></script>
+<script src="src/data/prComparisons.js"></script>
+<script src="src/data/teamLeaderboard.js"></script>
+<script src="src/data/cicdPipeline.js"></script>
+<script src="src/data/customRules.js"></script>
+<script src="src/data/complexityData.js"></script>
+<script src="src/data/vulnerabilities.js"></script>
+<script src="src/data/activityFeed.js"></script>
+<script src="src/data/reviewTemplates.js"></script>
+<script src="src/data/rubricData.js"></script>
+<script src="src/data/ownershipData.js"></script>
+<script src="src/data/checklistData.js"></script>
+<script src="src/data/velocityData.js"></script>
+<script src="src/data/annotationsData.js"></script>
+<script src="src/data/snoozeData.js"></script>
+<!-- UTILS -->
+<script src="src/utils/helpers.js"></script>
+<script src="src/utils/scoreAnimator.js"></script>
+<script src="src/utils/reviewRunner.js"></script>
+<script src="src/utils/toastNotifier.js"></script>
+<script src="src/utils/reportExporter.js"></script>
+<script src="src/utils/keyboardShortcuts.js"></script>
+<!-- COMPONENTS -->
+<script src="src/components/Header.js"></script>
+<script src="src/components/Tabs.js"></script>
+<script src="src/components/PRInput.js"></script>
+<script src="src/components/ScoreCard.js"></script>
+<script src="src/components/MetricsBar.js"></script>
+<script src="src/components/IssueCard.js"></script>
+<script src="src/components/IssueList.js"></script>
+<script src="src/components/DiffView.js"></script>
+<script src="src/components/StatsPanel.js"></script>
+<script src="src/components/AgentsPanel.js"></script>
+<script src="src/components/TimelinePanel.js"></script>
+<script src="src/components/ChatPanel.js"></script>
+<script src="src/components/AutoFixEngine.js"></script>
+<script src="src/components/SettingsPanel.js"></script>
+<script src="src/components/WebhookSimulator.js"></script>
+<script src="src/components/ExportModal.js"></script>
+<script src="src/components/ComparePanel.js"></script>
+<script src="src/components/LeaderboardPanel.js"></script>
+<script src="src/components/CICDPanel.js"></script>
+<script src="src/components/RuleManager.js"></script>
+<script src="src/components/HeatmapPanel.js"></script>
+<script src="src/components/DependencyScanner.js"></script>
+<script src="src/components/ActivityFeed.js"></script>
+<script src="src/components/TemplatesPanel.js"></script>
+<script src="src/components/TestGenerator.js"></script>
+<script src="src/components/RubricPanel.js"></script>
+<script src="src/components/OwnershipPanel.js"></script>
+<script src="src/components/SnoozePanel.js"></script>
+<script src="src/components/AnnotationsPanel.js"></script>
+<script src="src/components/VelocityPanel.js"></script>
+<script src="src/components/ChecklistPanel.js"></script>
+<script src="src/app.js"></script>
+</body>
+</html>

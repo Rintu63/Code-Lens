@@ -1,0 +1,138 @@
+/* ============================================================
+   panels.css — Panel-specific styles
+   Covers: diff view, stats chart bars, loading spinner/steps
+   ============================================================ */
+
+/* ══════════════════════════════════════
+   DIFF VIEW PANEL
+   ══════════════════════════════════════ */
+.diff-file-block { margin-bottom: 1.25rem; }
+
+.diff-header {
+  font-family   : var(--font-mono);
+  font-size     : 12px;
+  color         : var(--text-muted);
+  padding       : .55rem .9rem;
+  background    : var(--bg-2);
+  border-radius : var(--rad) var(--rad) 0 0;
+  border        : 0.5px solid var(--border);
+  border-bottom : none;
+}
+
+.diff-body {
+  border-radius : 0 0 var(--rad) var(--rad);
+  border        : 0.5px solid var(--border);
+  overflow      : hidden;
+}
+
+.diff-line {
+  font-family : var(--font-mono);
+  font-size   : 12px;
+  padding     : 3px 12px;
+  display     : flex;
+  gap         : 14px;
+  line-height : 1.65;
+  min-height  : 24px;
+}
+.diff-line.added   { background: rgba(29,158,117,.09); }
+.diff-line.removed { background: rgba(226,75,74,.09);  }
+.diff-line.neutral { background: var(--bg);            }
+
+.diff-sign     { width: 14px; flex-shrink: 0; font-weight: 600; }
+.diff-sign.add { color: var(--ok);  }
+.diff-sign.rem { color: var(--bug); }
+.diff-sign.neu { color: var(--text-hint); }
+
+.diff-text { color: var(--text); white-space: pre; overflow-x: auto; }
+
+.inline-comment {
+  background  : var(--smell-bg);
+  border-left : 3px solid var(--smell);
+  padding     : .65rem .9rem;
+  font-size   : 12px;
+  color       : var(--smell-text);
+  line-height : 1.55;
+  display     : flex;
+  gap         : 8px;
+  align-items : flex-start;
+}
+.inline-comment i { font-size: 14px; margin-top: 1px; flex-shrink: 0; }
+
+/* ══════════════════════════════════════
+   STATS / ANALYTICS PANEL
+   ══════════════════════════════════════ */
+.chart-section { margin-bottom: 1.5rem; }
+.section-label {
+  font-size     : 14px;
+  font-weight   : 700;
+  margin-bottom : .85rem;
+}
+
+.chart-bar-row {
+  display     : flex;
+  align-items : center;
+  gap         : 10px;
+  margin-bottom: 10px;
+}
+.bar-label {
+  font-size   : 12px;
+  color       : var(--text-muted);
+  width       : 88px;
+  flex-shrink : 0;
+  text-align  : right;
+}
+.bar-track {
+  flex          : 1;
+  height        : 8px;
+  background    : var(--bg-3);
+  border-radius : 4px;
+  overflow      : hidden;
+}
+.bar-fill {
+  height        : 100%;
+  border-radius : 4px;
+  transition    : width 0.8s cubic-bezier(.4,0,.2,1);
+}
+.bar-count { font-size: 12px; font-weight: 600; width: 26px; text-align: right; }
+
+.pattern-row {
+  display       : flex;
+  align-items   : center;
+  gap           : 10px;
+  padding       : .6rem;
+  border        : 0.5px solid var(--border);
+  border-radius : var(--rad);
+  margin-bottom : 6px;
+  background    : var(--bg);
+}
+.pattern-dot  { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.pattern-name { font-size: 13px; flex: 1; }
+.pattern-count{ font-size: 11px; color: var(--text-muted); }
+
+/* ══════════════════════════════════════
+   LOADING STATE
+   ══════════════════════════════════════ */
+.loading-wrap {
+  padding    : 2.5rem 1rem;
+  text-align : center;
+}
+.loading-spinner {
+  width         : 34px;
+  height        : 34px;
+  border        : 2px solid var(--border);
+  border-top-color: var(--smell-dark);
+  border-radius : 50%;
+  animation     : spin 0.7s linear infinite;
+  margin        : 0 auto 14px;
+}
+.loading-text  { font-size: 13px; color: var(--text-muted); }
+.loading-steps {
+  margin-top : 14px;
+  font-size  : 12px;
+  color      : var(--text-hint);
+  text-align : left;
+  display    : inline-block;
+}
+.loading-step         { padding: 2px 0; transition: color 0.3s; }
+.loading-step.done    { color: var(--ok); }
+.loading-step.active  { color: var(--text); font-weight: 600; }

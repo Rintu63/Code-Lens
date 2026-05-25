@@ -1,0 +1,344 @@
+/* ============================================================
+   components.css — Reusable UI component styles
+   Covers: cards, badges, buttons, inputs, score ring,
+           issue cards, diff blocks, agent cards, timeline.
+   ============================================================ */
+
+/* ══════════════════════════════════════
+   PR INPUT CARD
+   ══════════════════════════════════════ */
+.pr-input-card {
+  background    : var(--bg-2);
+  border-radius : var(--rad-lg);
+  border        : 0.5px solid var(--border);
+  padding       : 1.25rem;
+  margin-bottom : 1rem;
+}
+
+.pr-input-label {
+  font-size      : 11px;
+  font-weight    : 600;
+  color          : var(--text-muted);
+  letter-spacing : 0.5px;
+  margin-bottom  : 8px;
+}
+
+.pr-input-row {
+  display     : flex;
+  gap         : 8px;
+  align-items : center;
+}
+
+.pr-url-input {
+  flex          : 1;
+  font-family   : var(--font-mono);
+  font-size     : 13px;
+  padding       : 9px 12px;
+  border-radius : var(--rad);
+  border        : 0.5px solid var(--border-2);
+  background    : var(--bg);
+  color         : var(--text);
+  outline       : none;
+  transition    : border-color 0.15s, box-shadow 0.15s;
+}
+.pr-url-input:focus {
+  border-color : var(--smell-dark);
+  box-shadow   : 0 0 0 2px rgba(83,74,183,.15);
+}
+
+/* ══════════════════════════════════════
+   BUTTONS
+   ══════════════════════════════════════ */
+.btn-review {
+  font-family  : var(--font-display);
+  font-size    : 13px;
+  font-weight  : 600;
+  padding      : 9px 18px;
+  border-radius: var(--rad);
+  background   : var(--smell-dark);
+  color        : #fff;
+  border       : none;
+  cursor       : pointer;
+  white-space  : nowrap;
+  transition   : background 0.15s, transform 0.1s;
+  display      : flex;
+  align-items  : center;
+  gap          : 6px;
+}
+.btn-review:hover   { background: #3C3489; }
+.btn-review:active  { transform: scale(.98); }
+.btn-review.loading { opacity: .65; cursor: not-allowed; }
+
+.fix-btn {
+  font-family  : var(--font-display);
+  font-size    : 11px;
+  font-weight  : 600;
+  padding      : 4px 12px;
+  border-radius: var(--rad);
+  background   : transparent;
+  border       : 0.5px solid var(--border-2);
+  cursor       : pointer;
+  color        : var(--text-muted);
+  transition   : background 0.12s, color 0.12s;
+  display      : flex;
+  align-items  : center;
+  gap          : 4px;
+}
+.fix-btn:hover { background: var(--bg-2); color: var(--text); }
+
+/* ══════════════════════════════════════
+   FILTER BUTTONS
+   ══════════════════════════════════════ */
+.filter-btn {
+  font-family  : var(--font-display);
+  font-size    : 11px;
+  font-weight  : 600;
+  padding      : 3px 10px;
+  border-radius: 20px;
+  border       : 0.5px solid var(--border-2);
+  cursor       : pointer;
+  background   : transparent;
+  color        : var(--text-muted);
+  transition   : all 0.12s;
+}
+.filter-btn.f-all   { background: var(--text);    color: var(--bg);       border-color: var(--text); }
+.filter-btn.f-bug   { background: var(--bug-bg);  color: var(--bug-text); border-color: var(--bug);  }
+.filter-btn.f-sec   { background: var(--sec-bg);  color: var(--sec-text); border-color: var(--sec);  }
+.filter-btn.f-perf  { background: var(--perf-bg); color: var(--perf-text);border-color: var(--perf); }
+.filter-btn.f-smell { background: var(--smell-bg);color: var(--smell-text);border-color: var(--smell);}
+
+/* ══════════════════════════════════════
+   SCORE RING
+   ══════════════════════════════════════ */
+.score-section {
+  display       : flex;
+  align-items   : center;
+  gap           : 1.5rem;
+  background    : var(--bg-2);
+  border-radius : var(--rad-lg);
+  border        : 0.5px solid var(--border);
+  padding       : 1.25rem;
+  margin-bottom : 1rem;
+}
+
+.score-ring-wrap {
+  position   : relative;
+  width      : 84px;
+  height     : 84px;
+  flex-shrink: 0;
+}
+
+.score-ring {
+  width    : 84px;
+  height   : 84px;
+  transform: rotate(-90deg);
+}
+
+.score-track { fill: none; stroke: var(--border-2); stroke-width: 8; }
+.score-fill  {
+  fill             : none;
+  stroke-width     : 8;
+  stroke-linecap   : round;
+  transition       : stroke-dasharray 0.9s cubic-bezier(.4,0,.2,1);
+}
+
+.score-num {
+  position  : absolute;
+  top       : 50%;
+  left      : 50%;
+  transform : translate(-50%,-50%);
+  font-size : 22px;
+  font-weight: 800;
+  line-height: 1;
+  color     : var(--text);
+}
+
+.score-info { flex: 1; }
+.score-title { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+.score-desc  { font-size: 13px; color: var(--text-muted); line-height: 1.55; }
+
+.grade-badge {
+  font-size     : 28px;
+  font-weight   : 800;
+  width         : 54px;
+  height        : 54px;
+  border-radius : 12px;
+  display       : flex;
+  align-items   : center;
+  justify-content: center;
+  flex-shrink   : 0;
+}
+
+/* ══════════════════════════════════════
+   METRIC CARD
+   ══════════════════════════════════════ */
+.meta-card {
+  background    : var(--bg);
+  border        : 0.5px solid var(--border);
+  border-radius : var(--rad);
+  padding       : .75rem 1rem;
+}
+.meta-label { font-size: 11px; color: var(--text-muted); margin-bottom: 4px; }
+.meta-value { font-size: 20px; font-weight: 700; }
+.meta-value.v-bug   { color: var(--bug);   }
+.meta-value.v-sec   { color: var(--sec);   }
+.meta-value.v-perf  { color: var(--perf);  }
+.meta-value.v-smell { color: var(--smell); }
+.meta-value.v-ok    { color: var(--ok);    }
+
+/* ══════════════════════════════════════
+   ISSUE CARD
+   ══════════════════════════════════════ */
+.issue-card {
+  background    : var(--bg);
+  border        : 0.5px solid var(--border);
+  border-left   : 3px solid transparent;
+  border-radius : var(--rad-lg);
+  padding       : 1rem 1.1rem;
+  margin-bottom : .65rem;
+  cursor        : pointer;
+  transition    : border-color 0.15s;
+}
+.issue-card:hover        { border-color: var(--border-2); }
+.issue-card.t-bug        { border-left-color: var(--bug);  }
+.issue-card.t-security   { border-left-color: var(--sec);  }
+.issue-card.t-performance{ border-left-color: var(--perf); }
+.issue-card.t-smell      { border-left-color: var(--smell);}
+
+.issue-top {
+  display     : flex;
+  align-items : flex-start;
+  gap         : 10px;
+  margin-bottom: 8px;
+}
+
+.issue-badge {
+  font-size      : 10px;
+  font-weight    : 700;
+  padding        : 2px 8px;
+  border-radius  : 10px;
+  letter-spacing : 0.4px;
+  white-space    : nowrap;
+  flex-shrink    : 0;
+  margin-top     : 1px;
+}
+.b-bug        { background: var(--bug-bg);  color: var(--bug-text);  }
+.b-security   { background: var(--sec-bg);  color: var(--sec-text);  }
+.b-performance{ background: var(--perf-bg); color: var(--perf-text); }
+.b-smell      { background: var(--smell-bg);color: var(--smell-text);}
+
+.sev-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+.sev-critical { background: var(--bug);  }
+.sev-high     { background: var(--sec);  }
+.sev-medium   { background: var(--perf); }
+.sev-low      { background: #639922;     }
+
+.issue-title { font-size: 14px; font-weight: 600; flex: 1; line-height: 1.4; }
+.issue-desc  { font-size: 13px; color: var(--text-muted); line-height: 1.55; margin-bottom: 8px; }
+
+/* ── Code snippet inside issue card ── */
+.code-snippet {
+  background    : var(--bg-3);
+  border-radius : var(--rad);
+  border        : 0.5px solid var(--border);
+  padding       : .65rem .9rem;
+  font-family   : var(--font-mono);
+  font-size     : 12px;
+  line-height   : 1.65;
+  overflow-x    : auto;
+  margin-bottom : 8px;
+}
+.code-line { display: flex; gap: 12px; }
+.line-num  { color: var(--text-hint); min-width: 22px; user-select: none; }
+.line-code { color: var(--text); white-space: pre; }
+.line-hl   {
+  background    : rgba(226,75,74,.11);
+  margin        : 0 -.9rem;
+  padding       : 0 .9rem;
+  border-radius : 2px;
+}
+
+.issue-footer {
+  display         : flex;
+  align-items     : center;
+  justify-content : space-between;
+}
+.issue-file {
+  font-family : var(--font-mono);
+  font-size   : 11px;
+  color       : var(--text-hint);
+  display     : flex;
+  align-items : center;
+  gap         : 4px;
+}
+
+/* ══════════════════════════════════════
+   AGENT CARD
+   ══════════════════════════════════════ */
+.agent-card {
+  background    : var(--bg);
+  border        : 0.5px solid var(--border);
+  border-radius : var(--rad-lg);
+  padding       : 1rem;
+  transition    : border-color 0.15s;
+}
+.agent-card:hover { border-color: var(--border-2); }
+
+.agent-icon {
+  width         : 38px;
+  height        : 38px;
+  border-radius : 10px;
+  display       : flex;
+  align-items   : center;
+  justify-content: center;
+  margin-bottom : 10px;
+  font-size     : 18px;
+}
+.agent-name { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.agent-desc { font-size: 11px; color: var(--text-muted); line-height: 1.55; margin-bottom: 8px; }
+.agent-stat { font-size: 11px; color: var(--text-hint); display: flex; align-items: center; gap: 4px; }
+
+/* ══════════════════════════════════════
+   TIMELINE
+   ══════════════════════════════════════ */
+.tl-item {
+  display       : flex;
+  gap           : 14px;
+  margin-bottom : 1.25rem;
+}
+.tl-left {
+  display        : flex;
+  flex-direction : column;
+  align-items    : center;
+  flex-shrink    : 0;
+}
+.tl-dot {
+  width          : 30px;
+  height         : 30px;
+  border-radius  : 50%;
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  flex-shrink    : 0;
+  font-size      : 14px;
+}
+.tl-line { width: 1px; background: var(--border); flex: 1; margin-top: 4px; }
+.tl-item:last-child .tl-line { display: none; }
+.tl-content   { flex: 1; padding-top: 3px; }
+.tl-action    { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
+.tl-detail    { font-size: 12px; color: var(--text-muted); }
+.tl-time      { font-size: 11px; color: var(--text-hint); margin-top: 4px; font-family: var(--font-mono); }
+
+/* ══════════════════════════════════════
+   ISSUES HEADER / FILTER ROW
+   ══════════════════════════════════════ */
+.issues-header {
+  display         : flex;
+  align-items     : center;
+  justify-content : space-between;
+  margin-bottom   : .75rem;
+  flex-wrap       : wrap;
+  gap             : 8px;
+}
+.issues-title { font-size: 14px; font-weight: 700; }
+.filter-row   { display: flex; gap: 6px; flex-wrap: wrap; }

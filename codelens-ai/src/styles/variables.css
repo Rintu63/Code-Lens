@@ -1,0 +1,81 @@
+/* ============================================================
+   variables.css — Design tokens for CodeLens AI
+   All colour, typography, spacing, and radius constants live
+   here so every other stylesheet can reference them by name.
+   ============================================================ */
+
+:root {
+  /* ── Typography ── */
+  --font-display : 'Syne', sans-serif;
+  --font-mono    : 'JetBrains Mono', monospace;
+  --font-body    : 'Syne', sans-serif;
+
+  /* ── Semantic surface colours ── */
+  --bg            : #ffffff;
+  --bg-2          : #f7f7f5;
+  --bg-3          : #efede8;
+  --text          : #1a1a18;
+  --text-muted    : #6b6a65;
+  --text-hint     : #a0a09a;
+  --border        : rgba(26,26,24,.12);
+  --border-2      : rgba(26,26,24,.22);
+
+  /* ── Accent: Bug (red) ── */
+  --bug           : #E24B4A;
+  --bug-bg        : #FCEBEB;
+  --bug-text      : #791F1F;
+
+  /* ── Accent: Security (coral/orange) ── */
+  --sec           : #D85A30;
+  --sec-bg        : #FAECE7;
+  --sec-text      : #4A1B0C;
+
+  /* ── Accent: Performance (amber) ── */
+  --perf          : #BA7517;
+  --perf-bg       : #FAEEDA;
+  --perf-text     : #412402;
+
+  /* ── Accent: Code Smell (purple) ── */
+  --smell         : #7F77DD;
+  --smell-bg      : #EEEDFE;
+  --smell-text    : #26215C;
+  --smell-dark    : #534AB7;
+
+  /* ── Accent: OK / success (teal) ── */
+  --ok            : #1D9E75;
+  --ok-bg         : #E1F5EE;
+  --ok-text       : #04342C;
+
+  /* ── Radii ── */
+  --rad           : 8px;
+  --rad-lg        : 12px;
+  --rad-xl        : 16px;
+
+  /* ── Shadows ── */
+  --shadow-card   : 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+}
+
+/* ── Dark-mode overrides ── */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg            : #1a1a18;
+    --bg-2          : #222220;
+    --bg-3          : #2a2a27;
+    --text          : #f0ede8;
+    --text-muted    : #9a9a94;
+    --text-hint     : #5e5e5a;
+    --border        : rgba(240,237,232,.10);
+    --border-2      : rgba(240,237,232,.20);
+
+    --bug-bg        : #2e1818;
+    --bug-text      : #f09595;
+    --sec-bg        : #2c1a10;
+    --sec-text      : #f0997b;
+    --perf-bg       : #2a1e08;
+    --perf-text     : #FAC775;
+    --smell-bg      : #1e1c36;
+    --smell-text    : #AFA9EC;
+    --ok-bg         : #0a1e17;
+    --ok-text       : #5DCAA5;
+  }
+}
